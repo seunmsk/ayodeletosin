@@ -342,3 +342,20 @@ a{color:var(--maroon)}a:hover{color:var(--maroon-dark)}
 .quote figcaption{display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--muted)}
 .quote figcaption strong{color:var(--ink);font-size:15px}
 .edu-card{align-self:start}
+
+/* photos: story portrait pair, impact photo, community gallery */
+.story-photos img{aspect-ratio:3/4;object-position:center 30%}
+.impact-photo{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:16px;display:block}
+.community{margin-top:8px}
+.community-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:8px 24px;margin:72px 0 24px}
+.community-head .sub-h{margin:0}
+.community-head p{color:var(--muted);max-width:480px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.gallery figure{margin:0;display:flex;flex-direction:column;gap:10px}
+.gallery img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:center 25%;border-radius:18px;display:block;transition:transform .4s ease}
+.gallery figure:hover img{transform:scale(1.02)}
+.gallery .g-wide{grid-column:1/-1}
+.gallery .g-wide img{aspect-ratio:16/8;object-position:center 40%}
+.gallery figcaption{font-size:14px;color:var(--body);line-height:1.5}
+@media (max-width:820px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery .g-wide img{aspect-ratio:4/3}}
+@media (max-width:480px){.gallery{grid-template-columns:1fr}}
