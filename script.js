@@ -155,6 +155,25 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ---------- STORY VIDEOS: play when visible, pausable ---------- */
+  document.querySelectorAll('.vid').forEach(function (fig) {
+    var v = fig.querySelector('video'), btn = fig.querySelector('.vid-btn'), userPaused = reduceMotion;
+    function sync() {
+      var paused = v.paused;
+      btn.setAttribute('aria-label', paused ? 'Play video' : 'Pause video');
+      btn.firstElementChild.textContent = paused ? '\u25B6' : '\u275A\u275A';
+    }
+    btn.addEventListener('click', function () {
+      if (v.paused) { userPaused = false; v.play().catch(function () {}); } else { userPaused = true; v.pause(); }
+    });
+    v.addEventListener('play', sync); v.addEventListener('pause', sync); sync();
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting && !userPaused) { v.play().catch(function () {}); } else if (!en[0].isIntersecting) { v.pause(); }
+      }, { threshold: 0.4 }).observe(v);
+    }
+  });
+
   /* ---------- CONTACT FORM → WHATSAPP ---------- */
   var form = $('contactForm');
   form.addEventListener('submit', function (e) {
