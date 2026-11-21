@@ -369,3 +369,4 @@ a{color:var(--maroon)}a:hover{color:var(--maroon-dark)}
 .vid-btn{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(29,21,23,.65);color:#fff;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .vid-btn:hover{background:var(--maroon)}
 @media (max-width:640px){.story-photos{grid-template-columns:repeat(2,minmax(0,1fr))}.story-photos .vid:not(.vid-wide){grid-column:1/-1}.story-photos .vid:not(.vid-wide) video{aspect-ratio:3/4;max-height:520px}}
+.quotes{grid-template-columns:repeat(auto-fit,minmax(280px,560px))}
