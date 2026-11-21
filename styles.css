@@ -370,3 +370,8 @@ a{color:var(--maroon)}a:hover{color:var(--maroon-dark)}
 .vid-btn:hover{background:var(--maroon)}
 @media (max-width:640px){.story-photos{grid-template-columns:repeat(2,minmax(0,1fr))}.story-photos .vid:not(.vid-wide){grid-column:1/-1}.story-photos .vid:not(.vid-wide) video{aspect-ratio:3/4;max-height:520px}}
 .quotes{grid-template-columns:repeat(auto-fit,minmax(280px,560px))}
+
+.case-photo{margin:0 0 4px;display:flex;flex-direction:column;gap:10px}
+.case-photo img{width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;object-position:center 55%;border-radius:24px;display:block}
+.case-photo figcaption{font-size:14px;color:var(--muted)}
+@media (max-width:640px){.case-photo img{aspect-ratio:4/3}}
