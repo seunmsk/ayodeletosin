@@ -322,3 +322,23 @@ a{color:var(--maroon)}a:hover{color:var(--maroon-dark)}
   .donut-arc{stroke-dashoffset:186}
 }
 @media (max-width:420px){.ev-num{font-size:30px}}
+
+/* additions: current role, story photos, teaching, testimonials */
+.now{font-size:15px;color:var(--body);margin-top:-14px}
+.story-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:8px 0}
+.story-photos figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.story-photos img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:16px;display:block}
+.story-photos figcaption{font-size:13px;color:var(--muted);line-height:1.45}
+@media (max-width:520px){.story-photos{grid-template-columns:1fr}}
+.impact-stack{display:flex;flex-direction:column;gap:20px}
+.teach-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:12px}
+.teach-card h3{font-family:var(--serif);font-size:24px}
+.teach-card p:not(.eyebrow){color:var(--body)}
+.teach-card .chip{background:var(--maroon-tint);border-color:var(--maroon-line)}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.quote{margin:0;background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:20px;justify-content:space-between}
+.quote blockquote{margin:0;font-family:var(--serif);font-size:19px;line-height:1.55;color:var(--ink)}
+.quote blockquote::before{content:"\201C";display:block;font-size:56px;line-height:.6;color:var(--maroon);margin-bottom:8px}
+.quote figcaption{display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--muted)}
+.quote figcaption strong{color:var(--ink);font-size:15px}
+.edu-card{align-self:start}

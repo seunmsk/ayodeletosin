@@ -11,8 +11,8 @@
 
   /* ---------- EXPERIENCE ---------- */
   var roles = [
-    { dates: '2025 – Present', title: 'Current role', org: 'Facilities, within a business group with property interests across Africa', text: 'Recently joined. Exploring a first pilot of the sustainability advisory model, subject to internal approval.', current: true },
-    { dates: 'Dec 2023 – 2025', title: 'Senior Facility Manager', org: 'Knight Frank Nigeria', text: 'Led facilities and project delivery across a Grade A portfolio, including the Benin City Mall energy work above.' },
+    { dates: 'Present', title: 'Head, Building Management', org: 'Tengen Properties', text: 'Leading building management. Exploring a first pilot of the sustainability advisory model here, subject to internal approval.', current: true },
+    { dates: 'Dec 2023 – 2025', title: 'Senior Facility Manager', org: 'Knight Frank Nigeria', text: 'Led facilities and project delivery across a Grade A portfolio, including the Benin City Mall energy work above. Taught Knight Frank Academy cohorts in 2024 and 2025.' },
     { dates: 'Feb 2022 – Nov 2023', title: 'Head of Facilities Operations', org: 'Misa Ltd, Lagos', text: 'Led facilities operations and won new mandates through proposal writing and bid presentations.' },
     { dates: 'Nov 2019 – Feb 2022', title: 'Facilities Manager', org: 'Horizon II Estate, Lagos', text: 'Managed facilities for a residential estate, leading the on-site team and delivering maintenance and improvement projects.' },
     { dates: 'Jan 2016 – Oct 2019', title: 'Project Associate', org: 'Formwork Limited, Lekki', text: 'Construction, project management and procurement: the grounding in how buildings are made that now shapes how I think about how they are run.' }
@@ -20,6 +20,17 @@
   $('timeline').innerHTML = roles.map(function (r) {
     return '<li class="tl reveal' + (r.current ? ' current' : '') + '"><span class="tl-date">' + esc(r.dates) + '</span><h4>' + esc(r.title) + '</h4><span class="tl-org">' + esc(r.org) + '</span><p>' + esc(r.text) + '</p></li>';
   }).join('');
+
+  /* ---------- TESTIMONIALS ----------
+     Add real quotes here, with the person's permission. The section stays hidden while this list is empty.
+     Example: { quote: '...', name: 'Full Name', role: 'Title, Organisation' } */
+  var testimonials = [];
+  if (testimonials.length) {
+    $('quotes').innerHTML = testimonials.map(function (t) {
+      return '<figure class="quote reveal"><blockquote>' + esc(t.quote) + '</blockquote><figcaption><strong>' + esc(t.name) + '</strong><span>' + esc(t.role) + '</span></figcaption></figure>';
+    }).join('');
+    $('testimonials').hidden = false;
+  }
 
   /* ---------- METHODOLOGY STEPPER ---------- */
   var method = [
