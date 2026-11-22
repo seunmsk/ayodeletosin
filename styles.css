@@ -497,3 +497,4 @@ body.article-page{background:#F6EFE4}
 .art-hero-portrait{max-width:560px}
 .art-hero-portrait img{aspect-ratio:4/5;object-position:center 15%}
 @media (max-width:640px){.art-hero-wide img{aspect-ratio:7/3}.art-hero-portrait img{aspect-ratio:4/5}}
+.art-hero figcaption{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
