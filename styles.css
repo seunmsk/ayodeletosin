@@ -421,3 +421,15 @@ a.idea:hover .idea-read span{transform:translateX(4px)}
 .art-nav span{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--maroon)}
 .art-nav.next{text-align:right}
 @media (max-width:640px){.art{padding:36px 0 60px}.art-body{font-size:17.5px}.art-hero img{aspect-ratio:4/3}.art-navs{grid-template-columns:1fr}.art-nav.next{text-align:left}.author{flex-direction:column}.article-page .nav .btn-link{display:none}}
+
+/* cream article pages */
+body.article-page{background:#F6EFE4}
+.article-page .nav-wrap{background:rgba(246,239,228,.94)}
+.article-page .art-meta{border-top-color:#E6DACB}
+.article-page .art-body{color:#2B2326}
+.article-page .art-body .pull{background:#FBF6EE;border-radius:0 12px 12px 0;padding:14px 18px 14px 20px}
+.article-page .author,.article-page .art-nav{background:#FFFBF4;border-color:#E6DACB}
+.article-page .art-hero img{box-shadow:0 18px 40px rgba(94,26,27,.12)}
+.article-page .art-body a.src{background:#EFE3D3}
+.article-page .footer{background:var(--maroon-deep)}
+@media (max-width:640px){.article-page .nav{min-height:64px}.article-page .brand-name{font-size:17px}}
