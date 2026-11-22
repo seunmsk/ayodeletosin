@@ -12,7 +12,7 @@
   /* ---------- EXPERIENCE ---------- */
   var roles = [
     { dates: 'Present', title: 'Head, Building Management', org: 'Tengen Properties', text: 'Leading building management. Exploring a first pilot of the sustainability advisory model here, subject to internal approval.', current: true },
-    { dates: 'Dec 2023 – 2025', title: 'Senior Facility Manager', org: 'Knight Frank Nigeria', text: 'Led facilities and project delivery across a Grade A portfolio, including the Benin City Mall energy work above. Taught Knight Frank Academy cohorts in 2024 and 2025.' },
+    { dates: 'Dec 2023 – 2025', title: 'Senior Facility Manager', org: 'Knight Frank Nigeria', text: 'Led facilities and project delivery across a Grade A portfolio, including the Benin City Mall energy work above. Shared knowledge with Knight Frank Academy cohorts in 2024 and 2025.' },
     { dates: 'Feb 2022 – Nov 2023', title: 'Head of Facilities Operations', org: 'Misa Ltd, Lagos', text: 'Led facilities operations and won new mandates through proposal writing and bid presentations.' },
     { dates: 'Nov 2019 – Feb 2022', title: 'Facilities Manager', org: 'Horizon II Estate, Lagos', text: 'Managed facilities for a residential estate, leading the on-site team and delivering maintenance and improvement projects.' },
     { dates: 'Jan 2016 – Oct 2019', title: 'Project Associate', org: 'Formwork Limited, Lekki', text: 'Construction, project management and procurement: the grounding in how buildings are made that now shapes how I think about how they are run.' }
@@ -175,6 +175,40 @@
       }, { threshold: 0.4 }).observe(v);
     }
   });
+
+  /* ---------- HORIZONTAL ROWS: arrow buttons ---------- */
+  document.querySelectorAll('.hs').forEach(function (row) {
+    var nav = document.createElement('div');
+    nav.className = 'hs-nav';
+    var label = row.getAttribute('data-hs-label') || 'items';
+    nav.innerHTML = '<button type="button" class="hs-btn" data-dir="-1" aria-label="Scroll ' + esc(label) + ' left">\u2190</button><button type="button" class="hs-btn" data-dir="1" aria-label="Scroll ' + esc(label) + ' right">\u2192</button>';
+    row.parentNode.insertBefore(nav, row);
+    var btns = nav.querySelectorAll('button');
+    function update() {
+      var max = row.scrollWidth - row.clientWidth - 4;
+      btns[0].disabled = row.scrollLeft <= 4;
+      btns[1].disabled = row.scrollLeft >= max;
+      nav.hidden = max <= 0;
+    }
+    nav.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) { return; }
+      row.scrollBy({ left: +b.dataset.dir * Math.max(260, row.clientWidth * 0.8), behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+    row.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    setTimeout(update, 300); update();
+  });
+
+  /* ---------- LIGHTBOX (magazine pages) ---------- */
+  var lb = $('lightbox'), lbImg = $('lbImg');
+  document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      lbImg.src = el.getAttribute('data-lightbox'); lbImg.alt = el.getAttribute('data-alt') || '';
+      if (lb.showModal) { lb.showModal(); } else { window.open(lbImg.src, '_blank'); }
+    });
+  });
+  $('lbClose').addEventListener('click', function () { lb.close(); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) { lb.close(); } });
 
   /* ---------- CONTACT FORM → WHATSAPP ---------- */
   var form = $('contactForm');
