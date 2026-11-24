@@ -29,15 +29,15 @@
       "tag": "Reported outcome"
     }
   ],
-  "evidenceNote": "Evidence, not claims. My work explores how better decisions can improve environmental performance while making financial sense.",
+  "evidenceNote": "Evidence not claims. My work explores how better decisions can improve environmental performance while making financial sense.",
   "pillars": [
     {
       "title": "Built Environment",
-      "text": "Facilities management, project management, property performance, operational efficiency and stakeholder management."
+      "text": "Facilities management, project management, asset performance, operational efficiency and stakeholder management."
     },
     {
       "title": "Sustainability",
-      "text": "Practical ways to reduce resource waste, improve building performance and make environmental improvements financially compelling."
+      "text": "Practical ways to achieve long term sustainability, reduce resource waste, improve building performance and make environmental improvements financially compelling."
     },
     {
       "title": "Impact",
@@ -119,28 +119,28 @@
       "current": true
     },
     {
-      "dates": "Dec 2023 – 2025",
+      "dates": "2023 – 2026",
       "title": "Senior Facility Manager",
       "organisation": "Knight Frank Nigeria",
-      "text": "Led facilities and project delivery across a Grade A portfolio, including the Benin City Mall energy work above. Shared knowledge with Knight Frank Academy cohorts in 2024 and 2025.",
+      "text": "Led facilities management teams and project delivery across a Grade A portfolio, including the Benin City Mall energy work above. Shared knowledge with Knight Frank Academy cohorts in 2024 and 2025.",
       "current": false
     },
     {
-      "dates": "Feb 2022 – Nov 2023",
+      "dates": "2022 - 2023",
       "title": "Head of Facilities Operations",
       "organisation": "Misa Ltd, Lagos",
-      "text": "Led facilities operations and won new mandates through proposal writing and bid presentations.",
+      "text": "Led facilities operations and won new mandates through proposal writing and bid presentations",
       "current": false
     },
     {
-      "dates": "Nov 2019 – Feb 2022",
+      "dates": "2019 - 2022",
       "title": "Facilities Manager",
       "organisation": "Horizon II Estate, Lagos",
       "text": "Managed facilities for a residential estate, leading the on-site team and delivering maintenance and improvement projects.",
       "current": false
     },
     {
-      "dates": "Jan 2016 – Oct 2019",
+      "dates": "2016 - 2019",
       "title": "Project Associate",
       "organisation": "Formwork Limited, Lekki",
       "text": "Construction, project management and procurement: the grounding in how buildings are made that now shapes how I think about how they are run.",
@@ -250,7 +250,7 @@
     }
   ],
   "contact": {
-    "intro": "Property owners, collaborators, development institutions, NGOs and anyone interested in making buildings perform better, environmentally and financially, are welcome to get in touch.",
+    "intro": "Property owners,development institutions, NGOs, collaborators, and anyone interested in making buildings perform better, environmentally and financially, are welcome to get in touch.",
     "whatsapp": "+234 816 789 8186",
     "linkedin": "https://www.linkedin.com/in/tosin-ayodele-10151a142",
     "location": "Lagos, Nigeria"
