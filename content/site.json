@@ -2,7 +2,7 @@
   "hero": {
     "kicker": "Real Estate & Built Environment Professional · Nigeria",
     "name": "Tosin Ayodele",
-    "lead": "I explore how environmental and financial performance can reinforce each other in Africa's built environment, and how sustainability can be considered earlier in the decisions that shape buildings and infrastructure.",
+    "lead": "I explore how environmental and financial performance can reinforce each other in Africa's built environment and how sustainability can be considered earlier in the decisions that shape buildings and infrastructure.",
     "credentials": "CFM · FMP · PMP",
     "currentRole": "Head, Building Management at Tengen Properties",
     "photo": "assets/portrait.jpg"
@@ -254,10 +254,5 @@
     "whatsapp": "+234 816 789 8186",
     "linkedin": "https://www.linkedin.com/in/tosin-ayodele-10151a142",
     "location": "Lagos, Nigeria"
-  },
-  "brand": {
-    "initials": "TA",
-    "logo": "",
-    "tabIcon": "assets/favicon.svg"
   }
 }
