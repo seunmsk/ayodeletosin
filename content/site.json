@@ -201,7 +201,7 @@
       {
         "src": "assets/ifma-leaders.jpg",
         "alt": "Lara Paemen, Adewale Adeniyi, Christa Dodoo and Tosin Ayodele standing in front of a statue",
-        "caption": "Left to right: Lara Paemen, Managing Director, IFMA EMEA; Adewale Adeniyi, Head of Facilities Management, CBRE; Christa Dodoo, Immediate Past Global Chair, IFMA; Tosin Ayodele.",
+        "caption": "Left to right: Lara Paemen, Managing Director, IFMA EMEA; Adewale Adeniyi, Head of Facilities Management, CBRE Excellerate; Christa Dodoo, Immediate Past Global Chair, IFMA; Tosin Ayodele.",
         "wide": false
       },
       {
@@ -254,5 +254,10 @@
     "whatsapp": "+234 816 789 8186",
     "linkedin": "https://www.linkedin.com/in/tosin-ayodele-10151a142",
     "location": "Lagos, Nigeria"
+  },
+  "brand": {
+    "initials": "TA",
+    "logo": "",
+    "tabIcon": "assets/favicon.svg"
   }
 }
