@@ -528,3 +528,4 @@ body.article-page{background:#F6EFE4}
 .share-t p{color:var(--body);margin:0}
 .share-t strong{font-family:var(--serif);font-size:20px;color:var(--ink);display:block;margin-bottom:2px}
 button.btn-link{background:none;border:none;cursor:pointer;font:inherit;font-weight:600}
+.brand-logo{width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;background:#fff}

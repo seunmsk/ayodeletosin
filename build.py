@@ -130,10 +130,17 @@ CONTACT = (f'      <p>{e(c["intro"])}</p>\n      <ul class="contact-list">\n'
 
 T = json.dumps([{k: t.get(k, '') for k in ('quote', 'name', 'role')} for t in site.get('testimonials', [])], ensure_ascii=False).replace('</', '<\\/')
 
+brand = site.get('brand') or {}
+def brand_mark(prefix):
+    if brand.get('logo'):
+        return f'<img class="brand-logo" src="{prefix}{e(brand["logo"])}" alt="" width="40" height="40">'
+    return f'<span class="mono">{e(brand.get("initials") or "TA")}</span>'
+def tab_icon(prefix): return prefix + e(brand.get('tabIcon') or 'assets/favicon.svg')
+
 page = open(p('templates/index.html'), encoding='utf-8').read()
 for k, v in {'HERO_TOP': HERO_TOP, 'HERO_BOTTOM': HERO_BOTTOM, 'HERO_PHOTO': HERO_PHOTO, 'EVIDENCE': EVIDENCE, 'EVIDENCE_NOTE': e(site.get('evidenceNote')),
              'PILLARS': PILLARS, 'STORY': STORY, 'EXPERIENCE': EXPERIENCE, 'EDUCATION': EDUCATION, 'CERTS': CERTS, 'GALLERY': GALLERY,
-             'ARTICLE_CARDS': ARTICLE_CARDS, 'CONTACT': CONTACT, 'TESTIMONIALS_JSON': T, 'WA': wa_digits, 'V': V}.items():
+             'ARTICLE_CARDS': ARTICLE_CARDS, 'CONTACT': CONTACT, 'BRAND_MARK': brand_mark(''), 'TAB_ICON': tab_icon(''), 'TESTIMONIALS_JSON': T, 'WA': wa_digits, 'V': V}.items():
     page = page.replace('{{' + k + '}}', v)
 assert '{{' not in page, re.findall(r'\{\{[A-Z_]+\}\}', page)
 open(p('index.html'), 'w', encoding='utf-8').write(page)
@@ -154,15 +161,17 @@ for i, a in enumerate(arts):
         hero = f'<figure class="{cls}"><img src="../{e(a["image"])}" alt="" width="1600" height="686">{cap}</figure>'
     out = tpl
     for k, v in {'TITLE': e(a['title']), 'STAND': e(a['standfirst']), 'MINS': str(max(1, round(words(a['body']) / 220))), 'BODY': md(a['body']),
-                 'NAV': nav, 'SLUG': e(a['slug']), 'HERO': hero, 'NUM': str(i + 1), 'TOTAL': str(n), 'V': V}.items():
+                 'NAV': nav, 'SLUG': e(a['slug']), 'BRAND_MARK': brand_mark('../'), 'TAB_ICON': tab_icon('../'), 'HERO': hero, 'NUM': str(i + 1), 'TOTAL': str(n), 'V': V}.items():
         out = out.replace('{{' + k + '}}', v)
     open(p('ideas', a['slug'] + '.html'), 'w', encoding='utf-8').write(out)
     keep.add(a['slug'] + '.html')
 for f in glob.glob(p('ideas', '*.html')):
     if os.path.basename(f) not in keep: os.remove(f)
 
-for f in ['testimonial.html', 'admin.html']:
+for f in ['testimonial.html', 'admin.html', '404.html']:
     if os.path.exists(p(f)):
         t = open(p(f), encoding='utf-8').read(); t2 = re.sub(r'styles\.css\?v=[a-z0-9]+', 'styles.css?v=' + V, t)
+        t2 = re.sub(r'<link rel="icon" href="[^"]*"( type="[^"]*")?>', '<link rel="icon" href="' + tab_icon('/') + '">', t2)
+        t2 = re.sub(r'(class="brand">)(?:<span class="mono">[^<]*</span>|<img class="brand-logo"[^>]*>)', lambda m: m.group(1) + brand_mark('/'), t2)
         if t2 != t: open(p(f), 'w', encoding='utf-8').write(t2)
 print(f'Built index.html and {n} articles (v={V})')

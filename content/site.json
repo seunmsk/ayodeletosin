@@ -254,5 +254,10 @@
     "whatsapp": "+234 816 789 8186",
     "linkedin": "https://www.linkedin.com/in/tosin-ayodele-10151a142",
     "location": "Lagos, Nigeria"
+  },
+  "brand": {
+    "initials": "TA",
+    "logo": "",
+    "tabIcon": "assets/favicon.svg"
   }
 }

@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Site admin | Tosin Ayodele</title>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=c6822f37">
+<link rel="stylesheet" href="styles.css?v=f8761496">
 <style>
 body.adm{background:#F6EFE4}
 .adm-top{position:sticky;top:0;z-index:20;background:rgba(246,239,228,.96);backdrop-filter:blur(8px);border-bottom:1px solid #E6DACB}
@@ -45,6 +45,17 @@ body.adm{background:#F6EFE4}
 .help{font-size:13px;color:var(--body);background:#F6EFE4;border-radius:12px;padding:12px 14px;margin:0 0 14px;line-height:1.6}
 .help code{background:#fff;border-radius:4px;padding:1px 5px}
 .login{max-width:460px;margin:80px auto;padding:0 20px}
+.preview-box{background:#fff;border:1px solid #E6DACB;border-radius:14px;padding:14px;margin:0 0 16px}
+.preview-label{display:block;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.mock-header{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#FBF9F8;border:1px solid var(--line);border-radius:10px}
+.mock-header .brand-name{font-family:var(--serif);font-weight:600;font-size:18px}
+.mock-menu{margin-left:auto;font-size:20px;color:var(--ink)}
+.mock-tabs{display:flex;gap:2px;background:#DEE1E6;border-radius:10px 10px 0 0;padding:6px 6px 0}
+.mock-tab{display:flex;align-items:center;gap:8px;background:#fff;border-radius:8px 8px 0 0;padding:8px 12px;font-size:13px;max-width:260px;box-shadow:0 0 0 2px #E9B872}
+.mock-tab span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock-tab .x{color:var(--muted);font-size:11px}
+.mock-tab.off{background:transparent;box-shadow:none;color:var(--muted)}
+.mock-url{background:#fff;border:1px solid #DEE1E6;border-top:none;border-radius:0 0 10px 10px;padding:8px 12px;font-size:13px;color:var(--muted)}
 </style>
 </head>
 <body class="adm">
@@ -71,6 +82,7 @@ body.adm{background:#F6EFE4}
       <button class="adm-tab" role="tab" data-tab="career">Career</button>
       <button class="adm-tab" role="tab" data-tab="photos">Photos</button>
       <button class="adm-tab" role="tab" data-tab="articles">Articles</button>
+      <button class="adm-tab" role="tab" data-tab="brand">Logo &amp; icon</button>
     </div>
   </header>
   <main class="adm-main" id="main"></main>
@@ -151,7 +163,7 @@ body.adm{background:#F6EFE4}
     if (f.t === 'check') { return '<label class="fld chk"><input type="checkbox" data-id="' + id + '" data-k="' + f.k + '"' + (v ? ' checked' : '') + '>' + esc(f.label) + '</label>'; }
     if (f.t === 'image') {
       var src = state.previews[v] || (v ? '/' + v : '');
-      return '<div class="fld">' + esc(f.label) + '<div class="img-field">' + (src ? '<img src="' + esc(src) + '" alt="">' : '') + '<div><button type="button" class="btn btn-outline btn-sm" data-upload="' + id + '" data-k="' + f.k + '">' + (v ? 'Replace photo' : 'Upload photo') + '</button><div class="path">' + esc(v || 'No photo yet') + '</div></div></div></div>';
+      return '<div class="fld">' + esc(f.label) + (f.help ? '<span class="hint" style="font-weight:400;color:var(--muted)">' + esc(f.help) + '</span>' : '') + '<div class="img-field">' + (src ? '<img src="' + esc(src) + '" alt="">' : '') + '<div><button type="button" class="btn btn-outline btn-sm" data-upload="' + id + '" data-k="' + f.k + '"' + (f.square ? ' data-square="' + f.square + '"' : '') + '>' + (v ? 'Replace' : 'Upload') + '</button>' + (f.clearable && v ? ' <button type="button" class="btn-link" data-clear="' + id + '" data-k="' + f.k + '">Remove</button>' : '') + '<div class="path">' + esc(v || 'No photo yet') + '</div></div></div></div>';
     }
     return '<label class="fld">' + esc(f.label) + '<input type="text" data-id="' + id + '" data-k="' + f.k + '" value="' + esc(v) + '"></label>';
   }
@@ -202,9 +214,34 @@ body.adm{background:#F6EFE4}
       h += '<button type="button" class="add" data-add="' + listId + '">+ New article</button></section>';
       m.innerHTML = h; return;
     }
+    if (state.tab === 'brand') { renderBrand(); return; }
     var sch = SCHEMA[state.tab];
     m.innerHTML = sch.sections.map(function (sec) { return renderSection(sec, state.site, 'site'); }).join('');
   }
+
+  /* ---------- logo & icon tab ---------- */
+  function imgSrc(v) { return state.previews[v] || (v ? '/' + v : ''); }
+  function renderBrand() {
+    state.site.brand = state.site.brand || { initials: 'TA', logo: '', tabIcon: 'assets/favicon.svg' };
+    var b = state.site.brand, id = reg(b, 'site');
+    var mark = b.logo ? '<img src="' + esc(imgSrc(b.logo)) + '" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover">' : '<span class="mono">' + esc(b.initials || 'TA') + '</span>';
+    var icon = '<img src="' + esc(imgSrc(b.tabIcon || 'assets/favicon.svg')) + '" alt="" style="width:16px;height:16px;border-radius:3px;object-fit:cover">';
+    $('main').innerHTML =
+      '<section class="adm-sec"><h2>1. Header logo</h2>' +
+      '<p class="hint">The small round badge at the <strong>top left of every page</strong>, next to your name. If you do not upload a logo, your initials are shown instead.</p>' +
+      '<div class="preview-box"><span class="preview-label">How it looks on the site</span><div class="mock-header">' + mark + '<span class="brand-name">' + esc(state.site.hero.name) + '</span><span class="mock-menu">☰</span></div></div>' +
+      fieldHtml({ k: 'logo', label: 'Logo image (optional)', t: 'image', square: 400, clearable: true, help: 'A square image works best. It will be shown in a circle.' }, b, id) +
+      fieldHtml({ k: 'initials', label: 'Initials (shown when there is no logo)' }, b, id) + '</section>' +
+      '<section class="adm-sec"><h2>2. Tab icon</h2>' +
+      '<p class="hint">The <strong>tiny picture on the browser tab</strong>, next to the page title. It also appears in bookmarks and when someone saves the site to their phone home screen. You may hear it called a <strong>"favicon"</strong>: that is the same thing.</p>' +
+      '<div class="preview-box"><span class="preview-label">How it looks in a browser</span><div class="mock-tabs"><div class="mock-tab">' + icon + '<span>Tosin Ayodele | Real Estate…</span><span class="x">✕</span></div><div class="mock-tab off"><span>New tab</span></div></div><div class="mock-url">ayodeletosin.com</div></div>' +
+      fieldHtml({ k: 'tabIcon', label: 'Tab icon image', t: 'image', square: 256, help: 'Use a simple square image, like your initials or a logo mark. Detailed photos become hard to see at this tiny size.' }, b, id) +
+      (b.tabIcon !== 'assets/favicon.svg' ? '<button type="button" class="btn-link" id="resetIcon">Go back to the original maroon TA icon</button>' : '') + '</section>' +
+      '<p class="help">After saving, the logo updates within 1–2 minutes. Browsers keep tab icons for a while, so the new icon can take a day to show on a device that has visited before.</p>';
+    var r = $('resetIcon'); if (r) { r.onclick = function () { b.tabIcon = 'assets/favicon.svg'; markDirty('site'); renderBrand(); }; }
+    $('main').addEventListener('input', brandLive);
+  }
+  function brandLive(e) { if (state.tab === 'brand' && e.target.getAttribute('data-k') === 'initials') { var m = document.querySelector('.mock-header .mono'); if (m) { m.textContent = e.target.value || 'TA'; } } }
 
   /* ---------- testimonials tab (approval) ---------- */
   function renderTestimonials() {
@@ -246,25 +283,32 @@ body.adm{background:#F6EFE4}
     } else if (b.dataset.add) {
       var L3 = REG[b.dataset.add], n = clone(L3.blank); if (state.tab === 'articles') { n._open = true; } L3.obj.push(n); markDirty(L3.file); keepScroll(render);
     } else if (b.dataset.upload) {
-      pickImage(REG[b.dataset.upload], b.dataset.k);
+      pickImage(REG[b.dataset.upload], b.dataset.k, +b.dataset.square || 0);
+    } else if (b.dataset.clear) {
+      REG[b.dataset.clear].obj[b.dataset.k] = ''; markDirty(REG[b.dataset.clear].file); keepScroll(render);
     } else if (b.dataset.ta) {
       if (b.dataset.ta !== 'approve' && !confirm('Are you sure?')) { return; }
       b.disabled = true; call('/api/admin', 'POST', { id: b.dataset.tid, action: b.dataset.ta }).then(function () { toast(b.dataset.ta === 'approve' ? 'Approved. It is now on the site.' : 'Done.'); renderTestimonials(); }).catch(function (err) { alert(err.message); b.disabled = false; });
     }
   });
 
-  function pickImage(R, k) {
+  function pickImage(R, k, square) {
     var inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*';
     inp.onchange = function () {
       var file = inp.files[0]; if (!file) { return; }
       toast('Uploading photo…', 6000);
       var img = new Image(), url = URL.createObjectURL(file);
       img.onload = function () {
-        var max = 1600, w = img.naturalWidth, h = img.naturalHeight, s = Math.min(1, max / Math.max(w, h));
-        var c = document.createElement('canvas'); c.width = Math.round(w * s); c.height = Math.round(h * s);
-        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-        var data = c.toDataURL('image/jpeg', 0.85);
-        call('/api/cms', 'POST', { action: 'upload', name: file.name.replace(/\.[^.]+$/, '') + '.jpg', base64: data }).then(function (r) {
+        var w = img.naturalWidth, h = img.naturalHeight, c = document.createElement('canvas'), ctx = c.getContext('2d'), data, ext;
+        if (square) {
+          var side = Math.min(w, h); c.width = c.height = Math.min(square, side);
+          ctx.drawImage(img, (w - side) / 2, (h - side) / 2, side, side, 0, 0, c.width, c.height);
+          data = c.toDataURL('image/png'); ext = '.png';
+        } else {
+          var s = Math.min(1, 1600 / Math.max(w, h)); c.width = Math.round(w * s); c.height = Math.round(h * s);
+          ctx.drawImage(img, 0, 0, c.width, c.height); data = c.toDataURL('image/jpeg', 0.85); ext = '.jpg';
+        }
+        call('/api/cms', 'POST', { action: 'upload', name: file.name.replace(/\.[^.]+$/, '') + ext, base64: data }).then(function (r) {
           state.previews[r.path] = data; R.obj[k] = r.path; markDirty(R.file); keepScroll(render); toast('Photo uploaded. Press "Save and publish" to put it on the site.');
         }).catch(function (err) { alert('Upload failed: ' + err.message); });
       };
