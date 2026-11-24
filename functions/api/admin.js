@@ -1,9 +1,6 @@
-import { json, listByPrefix, noStore } from '../../lib/shared.js';
+import { json, listByPrefix, noStore, isAdmin } from '../../lib/shared.js';
 
-function authorised(request, env) {
-  const key = request.headers.get('x-admin-key') || '';
-  return env.ADMIN_KEY && key.length > 0 && key === env.ADMIN_KEY;
-}
+function authorised(request, env) { return isAdmin(request, env); }
 
 // GET /api/admin -> pending and approved lists
 export async function onRequestGet({ request, env }) {

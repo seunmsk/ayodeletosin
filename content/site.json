@@ -1,0 +1,258 @@
+{
+  "hero": {
+    "kicker": "Real Estate & Built Environment Professional · Nigeria",
+    "name": "Tosin Ayodele",
+    "lead": "I explore how environmental and financial performance can reinforce each other in Africa's built environment, and how sustainability can be considered earlier in the decisions that shape buildings and infrastructure.",
+    "credentials": "CFM · FMP · PMP",
+    "currentRole": "Head, Building Management at Tengen Properties",
+    "photo": "assets/portrait.jpg"
+  },
+  "evidence": [
+    {
+      "number": "27%",
+      "label": "Energy reduction, Benin City Mall",
+      "tag": "Measured"
+    },
+    {
+      "number": "14 months",
+      "label": "Payback on energy improvements",
+      "tag": "Projected"
+    },
+    {
+      "number": "4.64/5.00",
+      "label": "University CGPA, best graduating student",
+      "tag": "Academic record"
+    },
+    {
+      "number": "42 of 70",
+      "label": "Students later admitted to university",
+      "tag": "Reported outcome"
+    }
+  ],
+  "evidenceNote": "Evidence, not claims. My work explores how better decisions can improve environmental performance while making financial sense.",
+  "pillars": [
+    {
+      "title": "Built Environment",
+      "text": "Facilities management, project management, property performance, operational efficiency and stakeholder management."
+    },
+    {
+      "title": "Sustainability",
+      "text": "Practical ways to reduce resource waste, improve building performance and make environmental improvements financially compelling."
+    },
+    {
+      "title": "Impact",
+      "text": "Knowledge-sharing, capability-building and solutions that can continue beyond individual interventions."
+    }
+  ],
+  "story": {
+    "eyebrow": "My Story",
+    "title": "The questions that shaped my work",
+    "paragraphs": [
+      {
+        "text": "My journey into sustainability did not begin with climate policy. It developed through education, real estate and experiences that changed the questions I ask about the environments people live and work in.",
+        "style": "intro"
+      },
+      {
+        "text": "My mother made education a priority for her children. My own path was not straightforward. I progressed through a National Diploma and Higher National Diploma before completing my bachelor's degree at Bells University of Technology, graduating as the best student in my class with a CGPA of 4.64/5.00.",
+        "style": "normal"
+      },
+      {
+        "text": "That journey taught me the value of finding another path when the first is unclear. It also shaped my belief that useful knowledge should be shared. In 2020, I worked with 70 senior secondary students in Asese, Ogun State, sharing study strategies that had helped me academically. The following year, 42 of those students gained university admission.",
+        "style": "normal"
+      },
+      {
+        "text": "Another experience changed how I thought about environmental responsibility.",
+        "style": "turn"
+      },
+      {
+        "text": "After losing my best friend to drowning at Elegushi Beach in Lagos, I avoided beaches and large bodies of water. In 2025, I returned to the coastline while volunteering at a beach cleanup with The OR Foundation in Accra. Clearing textile and plastic waste while reflecting on nearby Jamestown made environmental issues feel less abstract. I began thinking more deeply about how environmental conditions affect people differently and what responsibility professionals have when their decisions shape those conditions.",
+        "style": "normal"
+      },
+      {
+        "text": "[photos and videos]",
+        "style": "media"
+      },
+      {
+        "text": "Today, I bring those questions into my work in the built environment. My goal is to move beyond addressing inefficiencies after buildings are operational and contribute earlier, when decisions about design, energy, resources and resilience can still be influenced.",
+        "style": "normal"
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/accra-tosin-cleanup.jpg",
+        "alt": "Tosin in a high-visibility vest and gloves beside a full sack of collected waste on the beach in Accra",
+        "caption": "Volunteering at The OR Foundation beach cleanup, Accra, 2025.",
+        "wide": false
+      },
+      {
+        "type": "image",
+        "src": "assets/accra-tosin-boat.jpg",
+        "alt": "Tosin sitting on a fishing canoe on the Accra shoreline, with waste visible on the sand",
+        "caption": "Back at the coastline, among the fishing canoes near Jamestown.",
+        "wide": false
+      },
+      {
+        "type": "video",
+        "src": "assets/accra-selfie.mp4",
+        "poster": "assets/accra-selfie-poster.jpg",
+        "alt": "Short video of Tosin and fellow volunteers on the beach in Accra",
+        "caption": "With fellow volunteers on the beach, Accra, 2025.",
+        "wide": false
+      },
+      {
+        "type": "video",
+        "src": "assets/accra-shoreline.mp4",
+        "poster": "assets/accra-shoreline-poster.jpg",
+        "alt": "Short video of volunteers clearing waste from the Shatta shoreline in Accra",
+        "caption": "Volunteers clearing textile and plastic waste from the Shatta shoreline, Accra.",
+        "wide": true
+      }
+    ]
+  },
+  "experience": [
+    {
+      "dates": "Present",
+      "title": "Head, Building Management",
+      "organisation": "Tengen Properties",
+      "text": "Leading building management. Exploring a first pilot of the sustainability advisory model here, subject to internal approval.",
+      "current": true
+    },
+    {
+      "dates": "Dec 2023 – 2025",
+      "title": "Senior Facility Manager",
+      "organisation": "Knight Frank Nigeria",
+      "text": "Led facilities and project delivery across a Grade A portfolio, including the Benin City Mall energy work above. Shared knowledge with Knight Frank Academy cohorts in 2024 and 2025.",
+      "current": false
+    },
+    {
+      "dates": "Feb 2022 – Nov 2023",
+      "title": "Head of Facilities Operations",
+      "organisation": "Misa Ltd, Lagos",
+      "text": "Led facilities operations and won new mandates through proposal writing and bid presentations.",
+      "current": false
+    },
+    {
+      "dates": "Nov 2019 – Feb 2022",
+      "title": "Facilities Manager",
+      "organisation": "Horizon II Estate, Lagos",
+      "text": "Managed facilities for a residential estate, leading the on-site team and delivering maintenance and improvement projects.",
+      "current": false
+    },
+    {
+      "dates": "Jan 2016 – Oct 2019",
+      "title": "Project Associate",
+      "organisation": "Formwork Limited, Lekki",
+      "text": "Construction, project management and procurement: the grounding in how buildings are made that now shapes how I think about how they are run.",
+      "current": false
+    }
+  ],
+  "education": {
+    "school": "Bells University of Technology, Ota",
+    "degree": "Bachelor of Technology, Estate Management",
+    "facts": [
+      {
+        "big": "First Class",
+        "small": "Honours"
+      },
+      {
+        "big": "4.64/5.00",
+        "small": "CGPA"
+      },
+      {
+        "big": "Best",
+        "small": "graduating student in class"
+      }
+    ],
+    "text": "My educational journey taught me that achievement is not always about beginning with the clearest path. After progressing through National Diploma and Higher National Diploma qualifications in Estate Management, I continued to a bachelor's degree and graduated at the top of my class. The experience strengthened my discipline, resourcefulness and willingness to change direction when better information became available."
+  },
+  "certifications": [
+    {
+      "code": "CFM",
+      "name": "Certified Facility Manager",
+      "detail": "IFMA · Issued Dec 2025, valid to Dec 2028"
+    },
+    {
+      "code": "FMP",
+      "name": "Facility Management Professional",
+      "detail": "IFMA · Issued Jul 2022"
+    },
+    {
+      "code": "PMP",
+      "name": "Project Management Professional",
+      "detail": "Project Management Institute · Issued Jun 2022"
+    },
+    {
+      "code": "PD",
+      "name": "Professional Diploma, Leadership and Strategy",
+      "detail": "Covenant University"
+    }
+  ],
+  "gallery": {
+    "title": "Professional community",
+    "intro": "IFMA Global Africa in Lagos and Accra. Time with leaders in facilities management from across Africa and beyond.",
+    "photos": [
+      {
+        "src": "assets/ifma-group.jpg",
+        "alt": "Tosin with a group of facilities management professionals outside the IFMA Global Africa venue in Accra",
+        "caption": "With delegates and speakers at IFMA Global Africa, Accra.",
+        "wide": true
+      },
+      {
+        "src": "assets/ifma-leaders.jpg",
+        "alt": "Lara Paemen, Adewale Adeniyi, Christa Dodoo and Tosin Ayodele standing in front of a statue",
+        "caption": "Left to right: Lara Paemen, Managing Director, IFMA EMEA; Adewale Adeniyi, Head of Facilities Management, CBRE; Christa Dodoo, Immediate Past Global Chair, IFMA; Tosin Ayodele.",
+        "wide": false
+      },
+      {
+        "src": "assets/ifma-sherif-maged.jpg",
+        "alt": "Tosin with Sherif Maged in front of the IFMA Global Africa backdrop",
+        "caption": "With Sherif Maged, President, Africa Facilities Management Association.",
+        "wide": false
+      },
+      {
+        "src": "assets/ifma-matt-tucker.jpg",
+        "alt": "Tosin with Matt Tucker in front of the IFMA Global Africa backdrop",
+        "caption": "With Matt Tucker, Director of Research, International Facility Management Association.",
+        "wide": false
+      },
+      {
+        "src": "assets/ifma-nigeria-delegates.jpg",
+        "alt": "Tosin with delegates and speakers from Nigeria holding IFMA Global Africa signs",
+        "caption": "With delegates and speakers from Nigeria at IFMA Global Africa, Accra.",
+        "wide": true
+      },
+      {
+        "src": "assets/ifma-segun-adebayo.jpg",
+        "alt": "Tosin with Segun Adebayo in front of the IFMA Global Africa backdrop",
+        "caption": "With Segun Adebayo, Past President, IFMA Nigeria Chapter.",
+        "wide": false
+      },
+      {
+        "src": "assets/ifma-ghana-chapter.jpg",
+        "alt": "Tosin, Linda Naa Lamiley Lanquaye-Mills and Prince Botwe in front of the IFMA Ghana Chapter sign",
+        "caption": "Left to right: Tosin Ayodele; Linda Naa Lamiley Lanquaye-Mills, Facilities and Events Manager, The OR Foundation; Prince Botwe, award-winning IFMA Global Influencer.",
+        "wide": false
+      },
+      {
+        "src": "assets/ifma-henry-mulindwa.jpg",
+        "alt": "Tosin with Henry Mulindwa outside a shopping mall in Accra",
+        "caption": "With Henry Mulindwa, President, IFMA Uganda Chapter.",
+        "wide": false
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "quote": "Tosin is a very industrious person. I know him to be reliable, accountable and very knowledgeable, and someone who genuinely cares about the environment in our country. I have worked with Tosin for more than seven years.",
+      "name": "Seun Mosaku",
+      "role": "CEO, Eppcheck Technologies"
+    }
+  ],
+  "contact": {
+    "intro": "Property owners, collaborators and anyone interested in making buildings perform better, environmentally and financially, are welcome to get in touch.",
+    "whatsapp": "+234 816 789 8186",
+    "linkedin": "https://www.linkedin.com/in/tosin-ayodele-10151a142",
+    "location": "Lagos, Nigeria"
+  }
+}

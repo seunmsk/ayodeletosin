@@ -4,46 +4,311 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Review testimonials</title>
+<title>Site admin | Tosin Ayodele</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5b3492b3">
+<link rel="stylesheet" href="styles.css?v=c6822f37">
+<style>
+body.adm{background:#F6EFE4}
+.adm-top{position:sticky;top:0;z-index:20;background:rgba(246,239,228,.96);backdrop-filter:blur(8px);border-bottom:1px solid #E6DACB}
+.adm-top .bar{max-width:920px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.adm-top h1{font-family:var(--serif);font-size:20px;margin:0;display:flex;align-items:center;gap:10px}
+.adm-tabs{max-width:920px;margin:0 auto;padding:0 20px 10px;display:flex;gap:6px;overflow-x:auto}
+.adm-tab{flex:none;border:1.5px solid #D9C9B4;background:#fff;color:var(--ink);border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;min-height:40px}
+.adm-tab[aria-selected="true"]{background:var(--maroon);border-color:var(--maroon);color:#fff}
+.adm-main{max-width:920px;margin:0 auto;padding:24px 20px 140px}
+.adm-sec{background:#FFFBF4;border:1px solid #E6DACB;border-radius:20px;padding:22px;margin-bottom:18px}
+.adm-sec>h2{font-family:var(--serif);font-size:22px;margin:0 0 4px}
+.adm-sec>.hint{font-size:13px;color:var(--muted);margin:0 0 14px}
+.fld{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;font-size:13px;font-weight:600;color:var(--ink)}
+.fld input[type=text],.fld textarea,.fld select{background:#fff;border:1.5px solid #E6DACB;border-radius:10px;padding:11px 12px;font:inherit;font-size:15px;font-weight:400;color:var(--ink);width:100%}
+.fld textarea{resize:vertical;min-height:90px;line-height:1.55}
+.fld textarea.big{min-height:420px;font-size:15px}
+.fld input:focus,.fld textarea:focus,.fld select:focus{outline:none;border-color:var(--maroon)}
+.fld.chk{flex-direction:row;align-items:center;gap:10px;font-weight:500}
+.fld.chk input{width:20px;height:20px;accent-color:var(--maroon)}
+.item{border:1px solid #E6DACB;border-radius:16px;padding:16px;margin-bottom:12px;background:#fff}
+.item-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.item-head strong{font-size:14px;color:var(--maroon);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item-tools{display:flex;gap:6px;flex:none}
+.ibtn{width:38px;height:38px;border-radius:10px;border:1.5px solid #E6DACB;background:#FFFBF4;color:var(--ink);cursor:pointer;font-size:15px}
+.ibtn:hover{border-color:var(--maroon);color:var(--maroon)}
+.ibtn.del:hover{background:#9B2C2C;border-color:#9B2C2C;color:#fff}
+.add{border:1.5px dashed #C9B49A;background:transparent;color:var(--maroon);border-radius:12px;padding:12px 16px;font:inherit;font-weight:600;cursor:pointer;width:100%}
+.img-field{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.img-field img{width:84px;height:84px;object-fit:cover;border-radius:10px;background:#EFE3D3}
+.img-field .path{font-size:12px;color:var(--muted);font-weight:400;word-break:break-all}
+.savebar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#3A1011;color:#fff;padding:12px 20px;display:none}
+.savebar.on{display:block}
+.savebar .in{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#1D1517;color:#fff;padding:12px 18px;border-radius:12px;font-size:14px;z-index:40;max-width:90vw}
+.help{font-size:13px;color:var(--body);background:#F6EFE4;border-radius:12px;padding:12px 14px;margin:0 0 14px;line-height:1.6}
+.help code{background:#fff;border-radius:4px;padding:1px 5px}
+.login{max-width:460px;margin:80px auto;padding:0 20px}
+</style>
 </head>
-<body class="article-page">
-<main class="container-narrow tform-wrap">
+<body class="adm">
+
+<div class="login" id="login">
   <p class="eyebrow">Private</p>
-  <h1>Review testimonials</h1>
+  <h1 style="font-family:var(--serif);font-size:40px;margin:8px 0 18px">Site admin</h1>
   <form class="tform" id="keyForm">
     <label>Admin key<input type="password" name="key" required autocomplete="current-password"></label>
-    <button class="btn btn-primary" type="submit">Open</button>
+    <button class="btn btn-primary" type="submit">Open dashboard</button>
     <p class="form-msg" id="kmsg" hidden></p>
   </form>
-  <div id="panel" hidden>
-    <h2 class="adm-h">Waiting for approval <span id="pc"></span></h2>
-    <div id="pending" class="adm-list"></div>
-    <h2 class="adm-h">Live on the site <span id="ac"></span></h2>
-    <div id="approved" class="adm-list"></div>
-    <button type="button" class="btn-link" id="logout">Lock this page</button>
-  </div>
-</main>
+</div>
+
+<div id="app" hidden>
+  <header class="adm-top">
+    <div class="bar">
+      <h1><span class="mono sm">TA</span>Site admin</h1>
+      <div class="row"><a class="btn-link" href="/" target="_blank" rel="noopener">View site ↗</a><button type="button" class="btn-link" id="logout">Lock</button></div>
+    </div>
+    <div class="adm-tabs" role="tablist" id="tabs">
+      <button class="adm-tab" role="tab" data-tab="testimonials">Testimonials</button>
+      <button class="adm-tab" role="tab" data-tab="main">Main page</button>
+      <button class="adm-tab" role="tab" data-tab="career">Career</button>
+      <button class="adm-tab" role="tab" data-tab="photos">Photos</button>
+      <button class="adm-tab" role="tab" data-tab="articles">Articles</button>
+    </div>
+  </header>
+  <main class="adm-main" id="main"></main>
+  <div class="savebar" id="savebar"><div class="in"><span id="saveMsg">You have unsaved changes.</span><div class="row"><button class="btn btn-light btn-sm" id="discard" type="button">Discard</button><button class="btn btn-primary btn-sm" id="save" type="button" style="background:#E9B872;color:#1D1517">Save and publish</button></div></div></div>
+</div>
+
 <script>
-(function(){
-  var KEY='ta_admin_key',key='';try{key=localStorage.getItem(KEY)||'';}catch(e){}
-  function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
-  function api(method,body){return fetch('/api/admin',{method:method,headers:{'content-type':'application/json','x-admin-key':key},body:body?JSON.stringify(body):undefined}).then(function(r){return r.json().then(function(j){if(!r.ok){throw new Error(j.error||'Error');}return j;});});}
-  function card(t,actions){return '<article class="adm-card"><blockquote>'+esc(t.quote)+'</blockquote><p><strong>'+esc(t.name)+'</strong>'+(t.role?' · '+esc(t.role):'')+'</p>'+(t.relationship?'<p class="adm-meta">Knows Tosin: '+esc(t.relationship)+'</p>':'')+(t.email?'<p class="adm-meta">Email: '+esc(t.email)+'</p>':'')+'<p class="adm-meta">Received '+esc((t.createdAt||'').slice(0,10))+'</p><div class="row">'+actions(t)+'</div></article>';}
-  function load(){
-    api('GET').then(function(d){
-      document.getElementById('keyForm').hidden=true;document.getElementById('panel').hidden=false;
-      document.getElementById('pc').textContent='('+d.pending.length+')';document.getElementById('ac').textContent='('+d.approved.length+')';
-      document.getElementById('pending').innerHTML=d.pending.length?d.pending.map(function(t){return card(t,function(t){return '<button class="btn btn-primary btn-sm" data-a="approve" data-id="'+t.id+'">Approve</button><button class="btn btn-outline btn-sm" data-a="reject" data-id="'+t.id+'">Delete</button>';});}).join(''):'<p class="adm-meta">Nothing waiting.</p>';
-      document.getElementById('approved').innerHTML=d.approved.length?d.approved.map(function(t){return card(t,function(t){return '<button class="btn btn-outline btn-sm" data-a="remove" data-id="'+t.id+'">Remove from site</button>';});}).join(''):'<p class="adm-meta">None yet.</p>';
-    }).catch(function(e){document.getElementById('keyForm').hidden=false;document.getElementById('panel').hidden=true;var m=document.getElementById('kmsg');m.textContent=e.message;m.hidden=false;});
+(function () {
+  'use strict';
+  var KEY = 'ta_admin_key', key = '';
+  try { key = localStorage.getItem(KEY) || ''; } catch (e) {}
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var state = { site: null, articles: null, dirty: {}, tab: 'testimonials', previews: {} };
+  var snapshot = {};
+
+  function call(url, method, body) {
+    return fetch(url, { method: method, headers: { 'content-type': 'application/json', 'x-admin-key': key }, body: body ? JSON.stringify(body) : undefined })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok) { throw new Error(j.error || ('Error ' + r.status)); } return j; }); });
   }
-  document.getElementById('keyForm').addEventListener('submit',function(e){e.preventDefault();key=this.key.value;try{localStorage.setItem(KEY,key);}catch(x){}load();});
-  document.getElementById('panel').addEventListener('click',function(e){var b=e.target.closest('button[data-a]');if(!b){return;}if(b.dataset.a!=='approve'&&!confirm('Are you sure?')){return;}b.disabled=true;api('POST',{id:b.dataset.id,action:b.dataset.a}).then(load).catch(function(err){alert(err.message);b.disabled=false;});});
-  document.getElementById('logout').addEventListener('click',function(){try{localStorage.removeItem(KEY);}catch(e){}location.reload();});
-  if(key){load();}
+  function toast(msg, ms) { var t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; document.body.appendChild(t); setTimeout(function () { t.remove(); }, ms || 3500); }
+
+  /* ---------- schema ---------- */
+  var TAGS = ['Measured', 'Realised', 'Calculated', 'Projected', 'Observed', 'Academic record', 'Reported outcome'];
+  var SCHEMA = {
+    main: { file: 'site', sections: [
+      { title: 'Top of the page', path: 'hero', type: 'object', fields: [
+        { k: 'name', label: 'Name' }, { k: 'kicker', label: 'Line above the name' }, { k: 'lead', label: 'Introduction', t: 'textarea' },
+        { k: 'credentials', label: 'Credentials line' }, { k: 'currentRole', label: 'Current role line' }, { k: 'photo', label: 'Portrait photo', t: 'image' }] },
+      { title: 'Numbers strip', hint: 'The four key numbers under the introduction. Keep it to four.', path: 'evidence', type: 'list', label: function (x) { return x.number + ' · ' + x.label; },
+        blank: { number: '', label: '', tag: 'Measured' }, fields: [{ k: 'number', label: 'Number (e.g. 27% or 4.64/5.00)' }, { k: 'label', label: 'What it means' }, { k: 'tag', label: 'Evidence label', t: 'select', options: TAGS }] },
+      { title: 'Line under the numbers', path: '', type: 'object', fields: [{ k: 'evidenceNote', label: 'Text', t: 'textarea' }] },
+      { title: 'Three pillars', path: 'pillars', type: 'list', label: function (x) { return x.title; }, blank: { title: '', text: '' }, fields: [{ k: 'title', label: 'Title' }, { k: 'text', label: 'Text', t: 'textarea' }] },
+      { title: 'My Story', path: 'story', type: 'object', fields: [{ k: 'eyebrow', label: 'Small label' }, { k: 'title', label: 'Heading' }] },
+      { title: 'Story paragraphs', hint: 'Use the "Photos and videos go here" item to choose where the story photos appear. Edit those photos in the Photos tab.', path: 'story.paragraphs', type: 'list',
+        label: function (x) { return x.style === 'media' ? '[Photos and videos go here]' : (x.text || '').slice(0, 60); }, blank: { text: '', style: 'normal' },
+        fields: [{ k: 'style', label: 'Style', t: 'select', options: [['normal', 'Normal paragraph'], ['intro', 'Large opening paragraph'], ['turn', 'Turning point (maroon line)'], ['media', 'Photos and videos go here']] }, { k: 'text', label: 'Text', t: 'textarea' }] },
+      { title: 'Contact', path: 'contact', type: 'object', fields: [{ k: 'intro', label: 'Contact text', t: 'textarea' }, { k: 'whatsapp', label: 'WhatsApp number (with +234)' }, { k: 'linkedin', label: 'LinkedIn link' }, { k: 'location', label: 'Location' }] }
+    ] },
+    career: { file: 'site', sections: [
+      { title: 'Experience', hint: 'Top item shows first. Tick "Current role" for the job you are in now.', path: 'experience', type: 'list', label: function (x) { return x.title + ' · ' + x.organisation; },
+        blank: { dates: '', title: '', organisation: '', text: '', current: false },
+        fields: [{ k: 'dates', label: 'Dates (e.g. Jan 2026 – Present)' }, { k: 'title', label: 'Job title' }, { k: 'organisation', label: 'Organisation' }, { k: 'text', label: 'What you did', t: 'textarea' }, { k: 'current', label: 'Current role', t: 'check' }] },
+      { title: 'Education', path: 'education', type: 'object', fields: [{ k: 'school', label: 'School' }, { k: 'degree', label: 'Degree' }, { k: 'text', label: 'Text', t: 'textarea' }] },
+      { title: 'Education highlights', path: 'education.facts', type: 'list', label: function (x) { return x.big + ' ' + x.small; }, blank: { big: '', small: '' }, fields: [{ k: 'big', label: 'Big text (e.g. First Class)' }, { k: 'small', label: 'Small text (e.g. Honours)' }] },
+      { title: 'Certifications', path: 'certifications', type: 'list', label: function (x) { return x.code + ' · ' + x.name; }, blank: { code: '', name: '', detail: '' },
+        fields: [{ k: 'code', label: 'Short code (e.g. CFM)' }, { k: 'name', label: 'Full name' }, { k: 'detail', label: 'Issuer and date' }] }
+    ] },
+    photos: { file: 'site', sections: [
+      { title: 'Gallery', path: 'gallery', type: 'object', fields: [{ k: 'title', label: 'Heading' }, { k: 'intro', label: 'Intro text', t: 'textarea' }] },
+      { title: 'Gallery photos', hint: 'Use ↑ ↓ to change the order. "Wide" makes a photo larger.', path: 'gallery.photos', type: 'list', label: function (x) { return x.caption; },
+        blank: { src: '', alt: '', caption: '', wide: false }, fields: [{ k: 'src', label: 'Photo', t: 'image' }, { k: 'caption', label: 'Caption', t: 'textarea' }, { k: 'alt', label: 'Short description of the photo (for screen readers)' }, { k: 'wide', label: 'Wide', t: 'check' }] },
+      { title: 'Story photos and videos', hint: 'These appear inside My Story. Videos can be reordered and re-captioned here; send new videos to Seun.', path: 'story.media', type: 'list',
+        label: function (x) { return (x.type === 'video' ? '[Video] ' : '') + (x.caption || ''); }, blank: { type: 'image', src: '', alt: '', caption: '', wide: false },
+        fields: [{ k: 'src', label: 'Photo', t: 'image', when: function (x) { return x.type !== 'video'; } }, { k: 'caption', label: 'Caption', t: 'textarea' }, { k: 'alt', label: 'Short description (for screen readers)' }] }
+    ] }
+  };
+  var ARTICLE_FIELDS = [
+    { k: 'title', label: 'Title' }, { k: 'standfirst', label: 'Subtitle', t: 'textarea' },
+    { k: 'image', label: 'Top image', t: 'image' }, { k: 'imageStyle', label: 'Image shape', t: 'select', options: [['photo', 'Wide photo'], ['wide', 'Extra wide banner'], ['portrait', 'Portrait (upright)']] },
+    { k: 'imageCaption', label: 'Image caption (optional)' }, { k: 'slug', label: 'Web address (leave as is unless you need to change it)' },
+    { k: 'body', label: 'Article text', t: 'textarea', big: true }];
+
+  /* ---------- data helpers ---------- */
+  function get(obj, path) { if (!path) { return obj; } return path.split('.').reduce(function (o, k) { return o == null ? o : o[k]; }, obj); }
+  function fileOf(tab) { return tab === 'articles' ? 'articles' : 'site'; }
+  function markDirty(file) {
+    state.dirty[file] = true; $('savebar').classList.add('on');
+  }
+  function clone(x) { return JSON.parse(JSON.stringify(x)); }
+
+  /* ---------- render fields ---------- */
+  function fieldHtml(f, obj, id) {
+    var v = obj[f.k];
+    if (f.when && !f.when(obj)) { return ''; }
+    if (f.t === 'textarea') { return '<label class="fld">' + esc(f.label) + '<textarea data-id="' + id + '" data-k="' + f.k + '"' + (f.big ? ' class="big"' : '') + '>' + esc(v) + '</textarea></label>'; }
+    if (f.t === 'select') { return '<label class="fld">' + esc(f.label) + '<select data-id="' + id + '" data-k="' + f.k + '">' + f.options.map(function (o) { var val = Array.isArray(o) ? o[0] : o, lab = Array.isArray(o) ? o[1] : o; return '<option value="' + esc(val) + '"' + (val === v ? ' selected' : '') + '>' + esc(lab) + '</option>'; }).join('') + '</select></label>'; }
+    if (f.t === 'check') { return '<label class="fld chk"><input type="checkbox" data-id="' + id + '" data-k="' + f.k + '"' + (v ? ' checked' : '') + '>' + esc(f.label) + '</label>'; }
+    if (f.t === 'image') {
+      var src = state.previews[v] || (v ? '/' + v : '');
+      return '<div class="fld">' + esc(f.label) + '<div class="img-field">' + (src ? '<img src="' + esc(src) + '" alt="">' : '') + '<div><button type="button" class="btn btn-outline btn-sm" data-upload="' + id + '" data-k="' + f.k + '">' + (v ? 'Replace photo' : 'Upload photo') + '</button><div class="path">' + esc(v || 'No photo yet') + '</div></div></div></div>';
+    }
+    return '<label class="fld">' + esc(f.label) + '<input type="text" data-id="' + id + '" data-k="' + f.k + '" value="' + esc(v) + '"></label>';
+  }
+
+  var REG = {}, regN = 0;
+  function reg(obj, file) { var id = 'o' + (regN++); REG[id] = { obj: obj, file: file }; return id; }
+
+  function renderSection(sec, root, file) {
+    var target = get(root, sec.path);
+    var h = '<section class="adm-sec"><h2>' + esc(sec.title) + '</h2>' + (sec.hint ? '<p class="hint">' + esc(sec.hint) + '</p>' : '');
+    if (sec.type === 'object') {
+      var id = reg(target, file);
+      h += sec.fields.map(function (f) { return fieldHtml(f, target, id); }).join('');
+    } else {
+      var listId = reg(target, file);
+      target.forEach(function (item, i) {
+        var id2 = reg(item, file);
+        h += '<div class="item"><div class="item-head"><strong>' + esc(sec.label(item) || 'New item') + '</strong><div class="item-tools">' +
+          '<button type="button" class="ibtn" data-move="-1" data-list="' + listId + '" data-i="' + i + '" aria-label="Move up">↑</button>' +
+          '<button type="button" class="ibtn" data-move="1" data-list="' + listId + '" data-i="' + i + '" aria-label="Move down">↓</button>' +
+          '<button type="button" class="ibtn del" data-del="' + listId + '" data-i="' + i + '" aria-label="Delete">✕</button></div></div>' +
+          sec.fields.map(function (f) { return fieldHtml(f, item, id2); }).join('') + '</div>';
+      });
+      REG[listId].blank = sec.blank;
+      h += '<button type="button" class="add" data-add="' + listId + '">+ Add</button>';
+    }
+    return h + '</section>';
+  }
+
+  function render() {
+    REG = {}; regN = 0;
+    document.querySelectorAll('.adm-tab').forEach(function (b) { b.setAttribute('aria-selected', String(b.dataset.tab === state.tab)); });
+    var m = $('main');
+    if (state.tab === 'testimonials') { renderTestimonials(); return; }
+    if (state.tab === 'articles') {
+      var list = state.articles.articles, listId = reg(list, 'articles');
+      REG[listId].blank = { slug: '', title: 'New article', standfirst: '', image: '', imageStyle: 'photo', imageCaption: '', body: '' };
+      var h = '<section class="adm-sec"><h2>Articles</h2><p class="hint">The first article is shown as the large featured card. Use ↑ ↓ to change the order.</p>' +
+        '<p class="help">Writing tips: leave an empty line between paragraphs. Start a line with <code>## </code> for a heading, or <code>&gt; </code> for a highlighted question. Use <code>**bold**</code> and <code>*italic*</code>. Links: <code>[text](https://link)</code>.</p>';
+      list.forEach(function (a, i) {
+        var id = reg(a, 'articles');
+        h += '<details class="item"' + (a._open ? ' open' : '') + '><summary class="item-head" style="cursor:pointer;list-style:none"><strong>' + (i + 1) + '. ' + esc(a.title) + '</strong><span class="item-tools">' +
+          '<button type="button" class="ibtn" data-move="-1" data-list="' + listId + '" data-i="' + i + '" aria-label="Move up">↑</button>' +
+          '<button type="button" class="ibtn" data-move="1" data-list="' + listId + '" data-i="' + i + '" aria-label="Move down">↓</button>' +
+          '<button type="button" class="ibtn del" data-del="' + listId + '" data-i="' + i + '" aria-label="Delete">✕</button></span></summary>' +
+          ARTICLE_FIELDS.map(function (f) { return fieldHtml(f, a, id); }).join('') + '</details>';
+      });
+      h += '<button type="button" class="add" data-add="' + listId + '">+ New article</button></section>';
+      m.innerHTML = h; return;
+    }
+    var sch = SCHEMA[state.tab];
+    m.innerHTML = sch.sections.map(function (sec) { return renderSection(sec, state.site, 'site'); }).join('');
+  }
+
+  /* ---------- testimonials tab (approval) ---------- */
+  function renderTestimonials() {
+    var m = $('main');
+    m.innerHTML = '<section class="adm-sec"><h2>Share link</h2><p class="hint">Send this link to people who can vouch for you.</p><p class="help"><strong>ayodeletosin.com/testimonial.html</strong></p><button type="button" class="btn btn-outline btn-sm" id="copyLink">Copy link</button></section>' +
+      '<section class="adm-sec"><h2>Waiting for approval <span id="pc"></span></h2><div id="pending" class="adm-list"><p class="adm-meta">Loading…</p></div></section>' +
+      '<section class="adm-sec"><h2>Approved from the link <span id="ac"></span></h2><div id="approved" class="adm-list"></div></section>' +
+      renderSection({ title: 'Pinned testimonials', hint: 'These always show first. Edit or reorder them here.', path: 'testimonials', type: 'list', label: function (x) { return x.name; }, blank: { quote: '', name: '', role: '' },
+        fields: [{ k: 'quote', label: 'Testimonial', t: 'textarea' }, { k: 'name', label: 'Name' }, { k: 'role', label: 'Title, organisation' }] }, state.site, 'site');
+    $('copyLink').onclick = function () { var u = location.origin + '/testimonial.html'; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function () { toast('Link copied'); }, function () { prompt('Copy this link', u); }); };
+    function card(t, actions) { return '<article class="adm-card"><blockquote>' + esc(t.quote) + '</blockquote><p><strong>' + esc(t.name) + '</strong>' + (t.role ? ' · ' + esc(t.role) : '') + '</p>' + (t.relationship ? '<p class="adm-meta">Knows Tosin: ' + esc(t.relationship) + '</p>' : '') + (t.email ? '<p class="adm-meta">Email: ' + esc(t.email) + '</p>' : '') + '<p class="adm-meta">Received ' + esc((t.createdAt || '').slice(0, 10)) + '</p><div class="row">' + actions(t) + '</div></article>'; }
+    call('/api/admin', 'GET').then(function (d) {
+      $('pc').textContent = '(' + d.pending.length + ')'; $('ac').textContent = '(' + d.approved.length + ')';
+      $('pending').innerHTML = d.pending.length ? d.pending.map(function (t) { return card(t, function (t) { return '<button class="btn btn-primary btn-sm" data-ta="approve" data-tid="' + t.id + '">Approve</button><button class="btn btn-outline btn-sm" data-ta="reject" data-tid="' + t.id + '">Delete</button>'; }); }).join('') : '<p class="adm-meta">Nothing waiting.</p>';
+      $('approved').innerHTML = d.approved.length ? d.approved.map(function (t) { return card(t, function (t) { return '<button class="btn btn-outline btn-sm" data-ta="remove" data-tid="' + t.id + '">Remove from site</button>'; }); }).join('') : '<p class="adm-meta">None yet.</p>';
+    }).catch(function (e) { $('pending').innerHTML = '<p class="adm-meta">' + esc(e.message) + '</p>'; });
+  }
+
+  /* ---------- events ---------- */
+  $('main').addEventListener('input', function (e) {
+    var el = e.target, id = el.getAttribute('data-id'); if (!id || !REG[id]) { return; }
+    REG[id].obj[el.getAttribute('data-k')] = el.type === 'checkbox' ? el.checked : el.value;
+    markDirty(REG[id].file);
+  });
+  $('main').addEventListener('change', function (e) {
+    var el = e.target, id = el.getAttribute('data-id'); if (!id || !REG[id]) { return; }
+    REG[id].obj[el.getAttribute('data-k')] = el.type === 'checkbox' ? el.checked : el.value;
+    markDirty(REG[id].file);
+    if (el.tagName === 'SELECT' || el.type === 'checkbox') { keepScroll(render); }
+  });
+  function keepScroll(fn) { var y = window.scrollY; fn(); window.scrollTo(0, y); }
+  $('main').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) { return; }
+    if (b.dataset.move) {
+      e.preventDefault(); var L = REG[b.dataset.list], i = +b.dataset.i, j = i + (+b.dataset.move);
+      if (j < 0 || j >= L.obj.length) { return; } var t = L.obj[i]; L.obj[i] = L.obj[j]; L.obj[j] = t; markDirty(L.file); keepScroll(render);
+    } else if (b.dataset.del) {
+      e.preventDefault(); if (!confirm('Delete this item?')) { return; } var L2 = REG[b.dataset.del]; L2.obj.splice(+b.dataset.i, 1); markDirty(L2.file); keepScroll(render);
+    } else if (b.dataset.add) {
+      var L3 = REG[b.dataset.add], n = clone(L3.blank); if (state.tab === 'articles') { n._open = true; } L3.obj.push(n); markDirty(L3.file); keepScroll(render);
+    } else if (b.dataset.upload) {
+      pickImage(REG[b.dataset.upload], b.dataset.k);
+    } else if (b.dataset.ta) {
+      if (b.dataset.ta !== 'approve' && !confirm('Are you sure?')) { return; }
+      b.disabled = true; call('/api/admin', 'POST', { id: b.dataset.tid, action: b.dataset.ta }).then(function () { toast(b.dataset.ta === 'approve' ? 'Approved. It is now on the site.' : 'Done.'); renderTestimonials(); }).catch(function (err) { alert(err.message); b.disabled = false; });
+    }
+  });
+
+  function pickImage(R, k) {
+    var inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*';
+    inp.onchange = function () {
+      var file = inp.files[0]; if (!file) { return; }
+      toast('Uploading photo…', 6000);
+      var img = new Image(), url = URL.createObjectURL(file);
+      img.onload = function () {
+        var max = 1600, w = img.naturalWidth, h = img.naturalHeight, s = Math.min(1, max / Math.max(w, h));
+        var c = document.createElement('canvas'); c.width = Math.round(w * s); c.height = Math.round(h * s);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        var data = c.toDataURL('image/jpeg', 0.85);
+        call('/api/cms', 'POST', { action: 'upload', name: file.name.replace(/\.[^.]+$/, '') + '.jpg', base64: data }).then(function (r) {
+          state.previews[r.path] = data; R.obj[k] = r.path; markDirty(R.file); keepScroll(render); toast('Photo uploaded. Press "Save and publish" to put it on the site.');
+        }).catch(function (err) { alert('Upload failed: ' + err.message); });
+      };
+      img.onerror = function () { alert('That file could not be read as an image.'); };
+      img.src = url;
+    };
+    inp.click();
+  }
+
+  $('tabs').addEventListener('click', function (e) { var b = e.target.closest('[data-tab]'); if (b) { state.tab = b.dataset.tab; render(); window.scrollTo(0, 0); } });
+
+  function slugify(t) { return String(t || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60) || 'article'; }
+  $('save').addEventListener('click', function () {
+    var files = Object.keys(state.dirty); if (!files.length) { return; }
+    var btn = $('save'); btn.disabled = true; $('saveMsg').textContent = 'Saving…';
+    var jobs = files.map(function (f) {
+      var data = clone(f === 'site' ? state.site : state.articles);
+      if (f === 'articles') {
+        var seen = {};
+        data.articles.forEach(function (a) { delete a._open; a.slug = slugify(a.slug || a.title); while (seen[a.slug]) { a.slug += '-2'; } seen[a.slug] = 1; });
+        state.articles = clone(data);
+      }
+      return call('/api/cms', 'POST', { action: 'save', file: f, data: data });
+    });
+    Promise.all(jobs).then(function () {
+      state.dirty = {}; snapshot = { site: clone(state.site), articles: clone(state.articles) };
+      $('savebar').classList.remove('on'); toast('Saved. The live site updates in about 1–2 minutes.', 5000); render();
+    }).catch(function (err) { alert('Could not save: ' + err.message); }).then(function () { btn.disabled = false; $('saveMsg').textContent = 'You have unsaved changes.'; });
+  });
+  $('discard').addEventListener('click', function () { if (!confirm('Discard your unsaved changes?')) { return; } state.site = clone(snapshot.site); state.articles = clone(snapshot.articles); state.dirty = {}; $('savebar').classList.remove('on'); render(); });
+  window.addEventListener('beforeunload', function (e) { if (Object.keys(state.dirty).length) { e.preventDefault(); e.returnValue = ''; } });
+
+  function open() {
+    call('/api/cms', 'GET').then(function (d) {
+      state.site = d.site; state.articles = d.articles; snapshot = { site: clone(d.site), articles: clone(d.articles) };
+      $('login').hidden = true; $('app').hidden = false; render();
+    }).catch(function (err) {
+      $('login').hidden = false; $('app').hidden = true; var m = $('kmsg'); m.textContent = err.message; m.hidden = false;
+      if (/Wrong key/.test(err.message)) { try { localStorage.removeItem(KEY); } catch (e) {} }
+    });
+  }
+  $('keyForm').addEventListener('submit', function (e) { e.preventDefault(); key = this.key.value; try { localStorage.setItem(KEY, key); } catch (x) {} open(); });
+  $('logout').addEventListener('click', function () { try { localStorage.removeItem(KEY); } catch (e) {} location.reload(); });
+  if (key) { open(); }
 })();
 </script>
 </body>

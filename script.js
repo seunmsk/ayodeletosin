@@ -9,24 +9,10 @@
   };
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- EXPERIENCE ---------- */
-  var roles = [
-    { dates: 'Present', title: 'Head, Building Management', org: 'Tengen Properties', text: 'Leading building management. Exploring a first pilot of the sustainability advisory model here, subject to internal approval.', current: true },
-    { dates: 'Dec 2023 – 2025', title: 'Senior Facility Manager', org: 'Knight Frank Nigeria', text: 'Led facilities and project delivery across a Grade A portfolio, including the Benin City Mall energy work above. Shared knowledge with Knight Frank Academy cohorts in 2024 and 2025.' },
-    { dates: 'Feb 2022 – Nov 2023', title: 'Head of Facilities Operations', org: 'Misa Ltd, Lagos', text: 'Led facilities operations and won new mandates through proposal writing and bid presentations.' },
-    { dates: 'Nov 2019 – Feb 2022', title: 'Facilities Manager', org: 'Horizon II Estate, Lagos', text: 'Managed facilities for a residential estate, leading the on-site team and delivering maintenance and improvement projects.' },
-    { dates: 'Jan 2016 – Oct 2019', title: 'Project Associate', org: 'Formwork Limited, Lekki', text: 'Construction, project management and procurement: the grounding in how buildings are made that now shapes how I think about how they are run.' }
-  ];
-  $('timeline').innerHTML = roles.map(function (r) {
-    return '<li class="tl reveal' + (r.current ? ' current' : '') + '"><span class="tl-date">' + esc(r.dates) + '</span><h4>' + esc(r.title) + '</h4><span class="tl-org">' + esc(r.org) + '</span><p>' + esc(r.text) + '</p></li>';
-  }).join('');
-
   /* ---------- TESTIMONIALS ----------
      Add real quotes here, with the person's permission. The section stays hidden while this list is empty.
      Example: { quote: '...', name: 'Full Name', role: 'Title, Organisation' } */
-  var testimonials = [
-    { quote: 'Tosin is a very industrious person. I know him to be reliable, accountable and very knowledgeable, and someone who genuinely cares about the environment in our country. I have worked with Tosin for more than seven years.', name: 'Seun Mosaku', role: 'CEO, Eppcheck Technologies' }
-  ];
+  var testimonials = window.SITE_TESTIMONIALS || [];
   function renderQuotes(list) {
     if (!list.length) { return; }
     $('quotes').innerHTML = list.map(function (t) {
@@ -227,7 +213,7 @@
     if (f.email.value.trim()) { lines.push('Email: ' + f.email.value.trim()); }
     if (f.organisation.value.trim()) { lines.push('Organisation: ' + f.organisation.value.trim()); }
     lines.push('', msg);
-    window.open('https://wa.me/2348167898186?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+    window.open('https://wa.me/' + (document.body.getAttribute('data-wa') || '') + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
     $('thanks').hidden = false;
   });
 
