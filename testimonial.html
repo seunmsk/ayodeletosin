@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Share a testimonial | Tosin Ayodele</title>
+<meta name="description" content="Worked with Tosin Ayodele? Share a short testimonial.">
+<meta property="og:title" content="Share a testimonial for Tosin Ayodele">
+<meta property="og:description" content="Worked with Tosin? It takes two minutes.">
+<meta property="og:image" content="https://ayodeletosin.com/assets/og.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=5b3492b3">
+</head>
+<body class="article-page">
+<header class="nav-wrap scrolled">
+  <nav class="container nav" aria-label="Main">
+    <a href="/" class="brand"><span class="mono">TA</span><span class="brand-name">Tosin Ayodele</span></a>
+    <a href="/" class="btn-link"><span aria-hidden="true">←</span> Back to site</a>
+  </nav>
+</header>
+<main class="container-narrow tform-wrap">
+  <img class="tform-photo" src="assets/portrait.jpg" alt="Portrait of Tosin Ayodele" width="896" height="1075">
+  <p class="eyebrow">Testimonial</p>
+  <h1>Worked with Tosin?</h1>
+  <p class="art-stand">A few honest lines about working with him would mean a lot. It takes about two minutes.</p>
+
+  <div class="tform-done" id="done" hidden>
+    <h2>Thank you.</h2>
+    <p>Your testimonial has been received. It will appear on the site once Tosin has reviewed it.</p>
+    <a href="/" class="btn btn-primary">Visit the site</a>
+  </div>
+
+  <form class="tform" id="tform" novalidate>
+    <label>Your full name<input name="name" required maxlength="80" autocomplete="name"></label>
+    <div class="form-row">
+      <label>Job title<input name="title" maxlength="80" autocomplete="organization-title"></label>
+      <label>Organisation<input name="organisation" maxlength="100" autocomplete="organization"></label>
+    </div>
+    <label>How do you know Tosin?<input name="relationship" maxlength="120" placeholder="For example: worked together at Knight Frank, 2023 to 2025"></label>
+    <label>Your testimonial<textarea name="quote" rows="6" required maxlength="700" placeholder="What was it like working with him? What did he do well?"></textarea><span class="count" id="count">0 / 700</span></label>
+    <label>Email <span class="opt">(optional, never shown)</span><input type="email" name="email" maxlength="120" autocomplete="email"></label>
+    <p class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></p>
+    <label class="check"><input type="checkbox" name="consent" required> I agree that my testimonial, name, job title and organisation can be published on ayodeletosin.com.</label>
+    <button type="submit" class="btn btn-primary" id="send">Submit testimonial</button>
+    <p class="form-msg" id="msg" role="alert" hidden></p>
+  </form>
+</main>
+<footer class="footer"><div class="container footer-row"><span>© 2026 Tosin Ayodele</span><a href="/" style="color:inherit">ayodeletosin.com</a></div></footer>
+<script>
+(function(){
+  var f=document.getElementById('tform'),msg=document.getElementById('msg'),btn=document.getElementById('send'),cnt=document.getElementById('count');
+  f.quote.addEventListener('input',function(){cnt.textContent=f.quote.value.length+' / 700';});
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); msg.hidden=true;
+    if(f.name.value.trim().length<2||f.quote.value.trim().length<20||!f.consent.checked){msg.textContent='Please add your name, a testimonial of at least 20 characters, and tick the consent box.';msg.hidden=false;return;}
+    btn.disabled=true;btn.textContent='Sending…';
+    var data={name:f.name.value,title:f.title.value,organisation:f.organisation.value,relationship:f.relationship.value,quote:f.quote.value,email:f.email.value,website:f.website.value,consent:f.consent.checked};
+    fetch('/api/testimonials',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});})
+      .then(function(res){ if(res.ok){f.hidden=true;document.getElementById('done').hidden=false;window.scrollTo(0,0);} else {throw new Error(res.j.error||'Something went wrong.');} })
+      .catch(function(err){msg.textContent=err.message||'Something went wrong. Please try again.';msg.hidden=false;btn.disabled=false;btn.textContent='Submit testimonial';});
+  });
+})();
+</script>
+</body>
+</html>

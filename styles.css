@@ -498,3 +498,33 @@ body.article-page{background:#F6EFE4}
 .art-hero-portrait img{aspect-ratio:4/5;object-position:center 15%}
 @media (max-width:640px){.art-hero-wide img{aspect-ratio:7/3}.art-hero-portrait img{aspect-ratio:4/5}}
 .art-hero figcaption{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.gallery.hs figure img{object-position:center 30%}
+
+/* testimonial form + admin */
+.tform-wrap{padding:56px 24px 80px;display:flex;flex-direction:column;gap:16px}
+.tform-wrap h1{font-family:var(--serif);font-size:clamp(36px,5vw,52px);line-height:1.08}
+.tform-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center top;box-shadow:0 0 0 4px #F6EFE4,0 0 0 6px var(--maroon)}
+.tform{display:flex;flex-direction:column;gap:16px;margin-top:12px;background:#FFFBF4;border:1px solid #E6DACB;border-radius:24px;padding:28px}
+.tform label{display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:500;color:var(--ink)}
+.tform input:not([type=checkbox]),.tform textarea{background:#fff;border:1.5px solid #E6DACB;border-radius:12px;padding:13px 14px;font:inherit;font-size:16px;font-weight:400;color:var(--ink)}
+.tform input:focus,.tform textarea:focus{outline:none;border-color:var(--maroon)}
+.tform textarea{resize:vertical}
+.tform .form-row label{flex:1 1 200px}
+.tform .check{flex-direction:row;align-items:flex-start;gap:12px;font-weight:400;color:var(--body)}
+.tform .check input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--maroon)}
+.tform button{align-self:flex-start}
+.opt{font-weight:400;color:var(--muted)}
+.count{font-size:12px;font-weight:400;color:var(--muted);align-self:flex-end}
+.hp{position:absolute;left:-9999px}
+.form-msg{color:#9B2C2C;font-size:14px}
+.tform-done{background:#FFFBF4;border:1px solid #E6DACB;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.tform-done h2{font-family:var(--serif);font-size:32px}
+.adm-h{font-family:var(--serif);font-size:24px;margin:28px 0 12px}
+.adm-list{display:flex;flex-direction:column;gap:14px}
+.adm-card{background:#FFFBF4;border:1px solid #E6DACB;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.adm-card blockquote{margin:0;font-family:var(--serif);font-size:18px;line-height:1.5}
+.adm-meta{font-size:13px;color:var(--muted)}
+.share-t{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:20px;background:#F6EFE4;border:1px dashed #D9C9B4;border-radius:20px;padding:22px 26px}
+.share-t p{color:var(--body);margin:0}
+.share-t strong{font-family:var(--serif);font-size:20px;color:var(--ink);display:block;margin-bottom:2px}
+button.btn-link{background:none;border:none;cursor:pointer;font:inherit;font-weight:600}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Review testimonials</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=5b3492b3">
+</head>
+<body class="article-page">
+<main class="container-narrow tform-wrap">
+  <p class="eyebrow">Private</p>
+  <h1>Review testimonials</h1>
+  <form class="tform" id="keyForm">
+    <label>Admin key<input type="password" name="key" required autocomplete="current-password"></label>
+    <button class="btn btn-primary" type="submit">Open</button>
+    <p class="form-msg" id="kmsg" hidden></p>
+  </form>
+  <div id="panel" hidden>
+    <h2 class="adm-h">Waiting for approval <span id="pc"></span></h2>
+    <div id="pending" class="adm-list"></div>
+    <h2 class="adm-h">Live on the site <span id="ac"></span></h2>
+    <div id="approved" class="adm-list"></div>
+    <button type="button" class="btn-link" id="logout">Lock this page</button>
+  </div>
+</main>
+<script>
+(function(){
+  var KEY='ta_admin_key',key='';try{key=localStorage.getItem(KEY)||'';}catch(e){}
+  function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function api(method,body){return fetch('/api/admin',{method:method,headers:{'content-type':'application/json','x-admin-key':key},body:body?JSON.stringify(body):undefined}).then(function(r){return r.json().then(function(j){if(!r.ok){throw new Error(j.error||'Error');}return j;});});}
+  function card(t,actions){return '<article class="adm-card"><blockquote>'+esc(t.quote)+'</blockquote><p><strong>'+esc(t.name)+'</strong>'+(t.role?' · '+esc(t.role):'')+'</p>'+(t.relationship?'<p class="adm-meta">Knows Tosin: '+esc(t.relationship)+'</p>':'')+(t.email?'<p class="adm-meta">Email: '+esc(t.email)+'</p>':'')+'<p class="adm-meta">Received '+esc((t.createdAt||'').slice(0,10))+'</p><div class="row">'+actions(t)+'</div></article>';}
+  function load(){
+    api('GET').then(function(d){
+      document.getElementById('keyForm').hidden=true;document.getElementById('panel').hidden=false;
+      document.getElementById('pc').textContent='('+d.pending.length+')';document.getElementById('ac').textContent='('+d.approved.length+')';
+      document.getElementById('pending').innerHTML=d.pending.length?d.pending.map(function(t){return card(t,function(t){return '<button class="btn btn-primary btn-sm" data-a="approve" data-id="'+t.id+'">Approve</button><button class="btn btn-outline btn-sm" data-a="reject" data-id="'+t.id+'">Delete</button>';});}).join(''):'<p class="adm-meta">Nothing waiting.</p>';
+      document.getElementById('approved').innerHTML=d.approved.length?d.approved.map(function(t){return card(t,function(t){return '<button class="btn btn-outline btn-sm" data-a="remove" data-id="'+t.id+'">Remove from site</button>';});}).join(''):'<p class="adm-meta">None yet.</p>';
+    }).catch(function(e){document.getElementById('keyForm').hidden=false;document.getElementById('panel').hidden=true;var m=document.getElementById('kmsg');m.textContent=e.message;m.hidden=false;});
+  }
+  document.getElementById('keyForm').addEventListener('submit',function(e){e.preventDefault();key=this.key.value;try{localStorage.setItem(KEY,key);}catch(x){}load();});
+  document.getElementById('panel').addEventListener('click',function(e){var b=e.target.closest('button[data-a]');if(!b){return;}if(b.dataset.a!=='approve'&&!confirm('Are you sure?')){return;}b.disabled=true;api('POST',{id:b.dataset.id,action:b.dataset.a}).then(load).catch(function(err){alert(err.message);b.disabled=false;});});
+  document.getElementById('logout').addEventListener('click',function(){try{localStorage.removeItem(KEY);}catch(e){}location.reload();});
+  if(key){load();}
+})();
+</script>
+</body>
+</html>

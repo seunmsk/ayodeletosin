@@ -27,12 +27,18 @@
   var testimonials = [
     { quote: 'Tosin is a very industrious person. I know him to be reliable, accountable and very knowledgeable, and someone who genuinely cares about the environment in our country. I have worked with Tosin for more than seven years.', name: 'Seun Mosaku', role: 'CEO, Eppcheck Technologies' }
   ];
-  if (testimonials.length) {
-    $('quotes').innerHTML = testimonials.map(function (t) {
-      return '<figure class="quote reveal"><blockquote>' + esc(t.quote) + '</blockquote><figcaption><strong>' + esc(t.name) + '</strong><span>' + esc(t.role) + '</span></figcaption></figure>';
+  function renderQuotes(list) {
+    if (!list.length) { return; }
+    $('quotes').innerHTML = list.map(function (t) {
+      return '<figure class="quote in"><blockquote>' + esc(t.quote) + '</blockquote><figcaption><strong>' + esc(t.name) + '</strong><span>' + esc(t.role || '') + '</span></figcaption></figure>';
     }).join('');
     $('testimonials').hidden = false;
   }
+  renderQuotes(testimonials);
+  /* approved testimonials submitted through ayodeletosin.com/testimonial */
+  fetch('/api/testimonials', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : { testimonials: [] }; })
+    .then(function (d) { if (d && d.testimonials && d.testimonials.length) { renderQuotes(testimonials.concat(d.testimonials)); } })
+    .catch(function () {});
 
   /* ---------- METHODOLOGY STEPPER ---------- */
   var method = [
